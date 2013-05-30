@@ -15,7 +15,8 @@ namespace Popbal {
 
 class Mechanism {
 public:
-	Mechanism(double n_odes);
+
+	Mechanism();
 	virtual ~Mechanism();
 
 	//! Add a process to the mechanism
@@ -24,9 +25,6 @@ public:
 	void CalculateDerivatives(double t, dvec &y, dvec &ydot) const;
 
 private:
-
-	//! Default constructor is protected.
-	Mechanism();
 
 	//! The list of particle processes in the mechanism
 	Processes::ProcessPtrs mProcesses;

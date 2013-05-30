@@ -23,6 +23,10 @@ public:
 	//! Advance cell to time t
 	void AdvanceTo(double t) const;
 
+protected:
+	// Right hand side of the ODE to solve
+	void RHS(const dvec &y, dvec &y, const double /* t */) const;
+
 private:
 	//! The timesteps vector
 	dvec mTimeSteps;

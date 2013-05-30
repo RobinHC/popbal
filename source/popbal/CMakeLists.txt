@@ -7,6 +7,7 @@ add_library(popbal
              source/pb_cell.cpp
              source/pb_mechanism.cpp
              source/pb_phase.cpp
+             source/pb_process_incep.cpp
              source/pb_process.cpp
              source/pb_solver.cpp
              ${INCS}

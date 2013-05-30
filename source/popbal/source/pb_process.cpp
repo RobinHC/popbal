@@ -10,14 +10,20 @@
 namespace Popbal {
 namespace Processes {
 
-Process::Process() {
-	// TODO Auto-generated constructor stub
+Process::Process():
+	mA(1.0),
+	mDelta(0) {}
 
+Process::~Process() {}
 
+//! Basic implementation of rate function
+double Process::Rate(double t, Phase &ph) const {
+	return mA;
 }
 
-Process::~Process() {
-	// TODO Auto-generated destructor stub
+//! Basic application of rate terms
+double Process::ApplyRateTerms(double t, Phase &ph, dvec &ydot) const {
+	return Rate(t, ph);
 }
 
 /*!

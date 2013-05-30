@@ -11,8 +11,13 @@ namespace Popbal {
 
 Phase::Phase():
 		mT(0.0),
-		mP(0.0)
+		mP(0.0),
+		mNumODE(0)
 {}
+
+Phase::Phase(unsigned int nODEs): Phase() {
+	SetNumberODEs(nODEs);
+}
 
 Phase::~Phase() {}
 
@@ -22,6 +27,11 @@ double Phase::Temperature() const {
 
 double Phase::Pressure() const {
 	return mP;
+}
+
+void Phase::SetNumberODEs(unsigned int nODEs) {
+	mNumODE = nODEs;
+	mODEs.resize(nODEs, 0.0);
 }
 
 } /* namespace Popbal */

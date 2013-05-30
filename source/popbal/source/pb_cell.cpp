@@ -9,13 +9,24 @@
 
 namespace Popbal {
 
-Cell::Cell() {
-	// TODO Auto-generated constructor stub
+Cell::Cell():
+	mPhase(NULL) {
+	mPhase = new Phase();
+}
 
+Cell::Cell(unsigned int nODEs):
+		mPhase(NULL) {
+	mPhase = new Phase(nODEs);
+}
+
+Cell::Cell(Phase ph):
+		mPhase(NULL) {
+	// TODO: Clone the phase supplied.
 }
 
 Cell::~Cell() {
-	// TODO Auto-generated destructor stub
+	// Cell has responsibility for the Phase data
+	delete mPhase;
 }
 
 } /* namespace Popbal */

@@ -15,7 +15,12 @@ namespace Popbal {
 
 class Cell {
 public:
+	//! Default constructor
 	Cell();
+	//! Create a new cell with the given number of ODEs
+	Cell(unsigned int nODEs);
+	//! Create a new cell with a given phase
+	Cell(Phase ph);
 	virtual ~Cell();
 
 private:

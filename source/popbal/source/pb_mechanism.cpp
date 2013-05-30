@@ -9,8 +9,7 @@
 
 namespace Popbal {
 
-Mechanism::Mechanism(double n_odes)
-{}
+Mechanism::Mechanism() {}
 
 Mechanism::~Mechanism() {
 	// Clear memory of all processes

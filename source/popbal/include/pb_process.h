@@ -23,7 +23,7 @@ public:
 	virtual double Rate(double t, Phase &ph) const;
 
 	//! Apply the rate terms to a vector
-	virtual double ApplyRateTerms(double t, Phase &ph, dvec &ydot);
+	virtual double ApplyRateTerms(double t, Phase &ph, dvec &ydot) const;
 
 	//! Set the component change of the process
 	virtual void SetComponentChange(signed int dx);

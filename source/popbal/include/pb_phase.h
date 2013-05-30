@@ -14,8 +14,14 @@ namespace Popbal {
 
 class Phase {
 public:
+	// Default constructor
 	Phase();
+	//! Create a new particle phase with a given number of ODEs
+	Phase(unsigned int nODEs);
 	virtual ~Phase();
+
+	//! Set the number of ODEs
+	void SetNumberODEs(unsigned int nODEs);
 
 	//! Return the temperature (K)
 	double Temperature() const;
@@ -24,6 +30,7 @@ public:
 	double Pressure() const;
 
 private:
+
 	//! The temperature of the phase (K)
 	double mT;
 
