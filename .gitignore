@@ -11,3 +11,15 @@
 *.lai
 *.la
 *.a
+
+# CMake & Eclipse
+*.cproject
+*.project
+CMakeCache.txt
+CMakeFiles*
+*.cmake
+Makefile
+bin/*
+
+# General
+*~
