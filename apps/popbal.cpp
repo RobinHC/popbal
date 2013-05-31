@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 	}
 
 	// Solve!
-	solver.Solve(cell);
+	//solver.Solve(cell);
 
 	return 0;
 }

@@ -13,23 +13,48 @@
 
 namespace Popbal {
 
+struct SolverOutputs
+{
+	//! The state of the ODE system
+    std::vector<dvec> mStates;
+    //! Timesteps taken by the integrator
+    dvec& mTimes;
+
+    //! Constructor
+    SolverOutputs(std::vector<dvec>& states, dvec& times);
+
+    //! Operator to collect information in the struct
+    void operator() (const dvec& x, double t);
+};
+
 class Solver {
 public:
 	Solver();
 	virtual ~Solver();
 
-	void Solve(Popbal::Cell &cell) const;
+	//! Set abs. tolerance
+	void SetAbsTolerance(double atol);
+
+	//! Set rel. tolerance
+	void SetRelTolerance(double rtol);
+
+
+	void Solve(Popbal::Cell &cell, dvec times) const;
 
 	//! Advance cell to time t
-	void AdvanceTo(double t) const;
+	void AdvanceTo(Popbal::Cell &cell, double t) const;
 
 protected:
 	// Right hand side of the ODE to solve
-	void RHS(const dvec &y, dvec &y, const double /* t */) const;
+	static void RHS(const dvec &y, dvec &ydot, const double /* t */);
 
 private:
-	//! The timesteps vector
-	dvec mTimeSteps;
+
+	//! Absolute error tolerance of the ODE solver
+	double mToleranceAbs;
+
+	//! Relative error tolerance of the ODE solver
+	double mToleranceRel;
 };
 
 } /* namespace Popbal */

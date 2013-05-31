@@ -23,6 +23,9 @@ public:
 	Cell(Phase ph);
 	virtual ~Cell();
 
+	//! Get the particle vector
+	dvec& Particles();
+
 private:
 	//! A pointer to the phase containing the particles
 	Phase* mPhase;

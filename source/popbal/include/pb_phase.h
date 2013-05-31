@@ -23,20 +23,10 @@ public:
 	//! Set the number of ODEs
 	void SetNumberODEs(unsigned int nODEs);
 
-	//! Return the temperature (K)
-	double Temperature() const;
-
-	//! Return the pressure (Pa)
-	double Pressure() const;
+	//! Get a reference to the ODE vector
+	dvec& ODEs();
 
 private:
-
-	//! The temperature of the phase (K)
-	double mT;
-
-	//! The pressure of the phase (Pa)
-	double mP;
-
 	//! The number of ODEs (i.e. particles)
 	unsigned int mNumODE;
 

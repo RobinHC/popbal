@@ -29,4 +29,13 @@ Cell::~Cell() {
 	delete mPhase;
 }
 
+/*!
+ * Get the vector of particles
+ *
+ * @return	ODE vector from Phase
+ */
+dvec& Cell::Particles() {
+	return mPhase->ODEs();
+}
+
 } /* namespace Popbal */
