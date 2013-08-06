@@ -6,7 +6,7 @@
  */
 
 #include "pb_consts.h"
-#include "pb_phase.h"
+#include "pb_background.h"
 
 #ifndef PROCESS_H_
 #define PROCESS_H_
@@ -20,10 +20,10 @@ public:
 	virtual ~Process();
 
 	//! Returns the rate of the particle process
-	virtual double Rate(double t, Phase &ph) const;
+	virtual double Rate(double t, const Background &bg) const;
 
 	//! Apply the rate terms to a vector
-	virtual double ApplyRateTerms(double t, Phase &ph, dvec &ydot) const;
+	virtual double ApplyRateTerms(double t, Background &bg, dvec &ydot) const;
 
 	//! Set the component change of the process
 	virtual void SetComponentChange(signed int dx);

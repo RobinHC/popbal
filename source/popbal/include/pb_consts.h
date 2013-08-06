@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <string>
 #include <assert.h>
+#include <cstddef>
 
 // Typedefs
 

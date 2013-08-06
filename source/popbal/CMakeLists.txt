@@ -1,15 +1,11 @@
 project (POPBAL)
 
 file(GLOB_RECURSE INCS "include/*.h")
+file(GLOB_RECURSE CPPS "source/*.cpp")
 source_group("Header Files" FILES ${INCS})
 
 add_library(popbal
-             source/pb_cell.cpp
-             source/pb_mechanism.cpp
-             source/pb_phase.cpp
-             source/pb_process_incep.cpp
-             source/pb_process.cpp
-             source/pb_solver.cpp
+             ${CPPS}
              ${INCS}
            )
 

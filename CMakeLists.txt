@@ -2,6 +2,7 @@ cmake_minimum_required (VERSION 2.6)
 project (POPBALSUITE)
 
 find_package(Boost 1.53.0 REQUIRED COMPONENTS program_options)
+SET(Boost_USE_STATIC_LIBS TRUE)
 
 # Turn off line breaks in error messages so that IDEs can parse the errors properly
 IF(CMAKE_COMPILER_IS_GNUCC)

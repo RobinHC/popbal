@@ -17,13 +17,13 @@ Process::Process():
 Process::~Process() {}
 
 //! Basic implementation of rate function
-double Process::Rate(double t, Phase &ph) const {
+double Process::Rate(double t, const Background &bg) const {
 	return mA;
 }
 
 //! Basic application of rate terms
-double Process::ApplyRateTerms(double t, Phase &ph, dvec &ydot) const {
-	return Rate(t, ph);
+double Process::ApplyRateTerms(double t, Background &bg, dvec &ydot) const {
+	return Rate(t, bg);
 }
 
 /*!

@@ -22,10 +22,10 @@ public:
 	virtual ~Inception();
 
 	//! Returns the rate of the particle process
-	double Rate(double t, Phase &ph) const;
+	double Rate(double t, const Background &bg) const;
 
 	//! Apply the rate terms to a vector
-	double ApplyRateTerms(double t, Phase &ph, dvec &ydot);
+	double ApplyRateTerms(double t, Background &bg, dvec &ydot);
 
 	//! Set the component change of the process
 	void SetComponentChange(signed int dx);

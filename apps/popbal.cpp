@@ -14,7 +14,7 @@ namespace po = boost::program_options;
 
 #include "pb_process_incep.h"
 #include "pb_mechanism.h"
-#include "pb_cell.h"
+#include "pb_background_static.h"
 #include "pb_solver.h"
 
 int main(int argc, char* argv[])
@@ -31,7 +31,8 @@ int main(int argc, char* argv[])
 	mech.AddProcess(p1);
 
 	// Create a reaction cell with N ODEs
-	Popbal::Cell cell(20);
+    Popbal::BackgroundStatic* bg 
+        = new Popbal::BackgroundStatic(1000, 101325, Popbal::Background::iAir);
 
 	// Create the solver
 	Popbal::Solver solver;

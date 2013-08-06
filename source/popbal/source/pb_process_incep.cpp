@@ -20,7 +20,7 @@ Inception::~Inception() {}
 //! Returns the rate of the particle process
 double Inception::Rate(
 		double t,
-		Phase &ph) const {
+		const Background &bg) const {
 	double rate(0.0);
 
 	if (mType == Inception::iConstant) {
@@ -35,10 +35,10 @@ double Inception::Rate(
 //! Apply the rate terms to a vector
 double Inception::ApplyRateTerms(
 		double t,
-		Phase &ph,
+		Background &bg,
 		dvec &ydot) {
 	// First get the rate
-	double rate = Rate(t, ph);
+	double rate = Rate(t, bg);
 
 	// Add the contribution to the rate vector (indexed from zero)
 	ydot[mDelta-1] += rate;

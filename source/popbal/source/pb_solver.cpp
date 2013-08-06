@@ -32,11 +32,11 @@ Solver::~Solver() {
 	// TODO Auto-generated destructor stub
 }
 
-void Solver::Solve(Popbal::Cell &cell, dvec times) const {
+void Solver::Solve(Reactor &r, dvec times) const {
 
 }
 
-void Solver::AdvanceTo(Cell &cell, double t) const {
+void Solver::AdvanceTo(Reactor &r, double t) const {
 
 	// Use an adaptive stepper to advance the system
 	typedef odeint::runge_kutta_cash_karp54<double> error_stepper_type;
@@ -44,7 +44,7 @@ void Solver::AdvanceTo(Cell &cell, double t) const {
 
 	std::vector<dvec> x;
 	dvec times;
-	odeint::integrate(RHS, cell.Particles(), 0.0, 10.0, 0.1, SolverOutputs(x, times));
+	//odeint::integrate(RHS, cell.Particles(), 0.0, 10.0, 0.1, SolverOutputs(x, times));
 
 	/*
 	odeint::integrate_adaptive(

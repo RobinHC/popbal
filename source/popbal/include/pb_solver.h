@@ -4,12 +4,9 @@
  *  Created on: 30 May 2013
  *      Author: wjm34
  */
-
+#pragma once
 #include "pb_consts.h"
-#include "pb_cell.h"
-
-#ifndef PB_SOLVER_H_
-#define PB_SOLVER_H_
+#include "pb_reactor.h"
 
 namespace Popbal {
 
@@ -39,10 +36,10 @@ public:
 	void SetRelTolerance(double rtol);
 
 
-	void Solve(Popbal::Cell &cell, dvec times) const;
+	void Solve(Reactor &r, dvec times) const;
 
 	//! Advance cell to time t
-	void AdvanceTo(Popbal::Cell &cell, double t) const;
+	void AdvanceTo(Reactor &r, double t) const;
 
 protected:
 	// Right hand side of the ODE to solve
@@ -58,4 +55,3 @@ private:
 };
 
 } /* namespace Popbal */
-#endif /* PB_SOLVER_H_ */
