@@ -14,7 +14,7 @@ public:
     Background(void);
 
     //! Destructor
-    ~Background(void);
+    virtual ~Background(void);
 
     // ACCESS TO STATE OF BACKGROUND PHASE
 
@@ -26,14 +26,5 @@ public:
 
     //! Return the viscoisty (Pa.s)
     virtual double Viscosity() const = 0;
-
-    // An enum of avaiable correlations for calculating the viscosity of a
-    // fluid mixture
-    enum ViscosityCorrelation {iAir, iHe, iWaterLiquid, iWaterVapour};
-
-protected:
-
-    double GetViscosity(ViscosityCorrelation vc) const;
-
 };
 } // Popbal

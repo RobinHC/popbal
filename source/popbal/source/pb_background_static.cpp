@@ -5,7 +5,7 @@ BackgroundStatic::BackgroundStatic(void):
     Background(),
     mT(0.0),
     mP(0.0),
-    mVC(ViscosityCorrelation::iAir)
+    mVC()
 {}
 
 
@@ -16,7 +16,7 @@ BackgroundStatic::~BackgroundStatic(void)
 BackgroundStatic::BackgroundStatic(
     double T,
     double P,
-    ViscosityCorrelation VC):
+    Transport::ViscosityCorrelation VC):
     Background(),
     mT(T),
     mP(P),
@@ -34,11 +34,6 @@ void BackgroundStatic::SetPressure(double P) {
     mP = P;
 }
 
-//! Set the viscosity
-void BackgroundStatic::SetViscosityCorrelation(ViscosityCorrelation VC) {
-    mVC = VC;
-}
-
 
 double BackgroundStatic::Temperature() const {
     return mT;
@@ -49,7 +44,7 @@ double BackgroundStatic::Pressure() const {
 }
 
 double BackgroundStatic::Viscosity() const {
-    return GetViscosity(mVC);
+	return mVC.Viscosity(mT, mP);
 }
 
 } // Popbal

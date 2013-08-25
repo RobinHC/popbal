@@ -12,10 +12,12 @@
 #include <boost/program_options.hpp>
 namespace po = boost::program_options;
 
+#include "pb_consts.h"
 #include "pb_process_incep.h"
 #include "pb_mechanism.h"
 #include "pb_background_static.h"
 #include "pb_solver.h"
+#include "pb_transport_viscosity_correlation.h"
 
 int main(int argc, char* argv[])
 {
@@ -30,10 +32,12 @@ int main(int argc, char* argv[])
 	p1->SetComponentChange(1);
 	mech.AddProcess(p1);
 
-	// Create a reaction cell with N ODEs
-    Popbal::BackgroundStatic* bg 
-        = new Popbal::BackgroundStatic(1000, 101325, Popbal::Background::iAir);
+	// Something for viscosity
+	Popbal::dvec vals(0.0);
+	Popbal::Transport::ViscosityCorrelation vc(vals, Popbal::Transport::iVC1);
 
+	// Create a reaction cell with N ODEs
+    Popbal::BackgroundStatic bg(1000.0, 101325.0, vc);
 	// Create the solver
 	Popbal::Solver solver;
 
